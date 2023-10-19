@@ -32,4 +32,21 @@ Code will be released soon.
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
+
+@misc{zhu2023ponderv2,
+      title={PonderV2: Pave the Way for 3D Foundation Model with A Universal Pre-training Paradigm}, 
+      author={Haoyi Zhu and Honghui Yang and Xiaoyang Wu and Di Huang and Sha Zhang and Xianglong He and Tong He and Hengshuang Zhao and Chunhua Shen and Yu Qiao and Wanli Ouyang},
+      year={2023},
+      eprint={2310.08586},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+
+@inproceedings{huang2023ponder,
+  title={Ponder: Point cloud pre-training via neural rendering},
+  author={Huang, Di and Peng, Sida and He, Tong and Yang, Honghui and Zhou, Xiaowei and Ouyang, Wanli},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={16089--16098},
+  year={2023}
+}
 ```
