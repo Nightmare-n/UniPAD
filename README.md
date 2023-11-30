@@ -33,10 +33,16 @@ This project is based on MMDetection3D, which can be constructed as follows.
 - Install the required environment
 
 ```
+conda create -n unipad python=3.7
+conda activate unipad
+conda install -y pytorch==1.7.1 torchvision==0.8.2 cudatoolkit=11.0 -c pytorch
+
 pip install --no-index torch-scatter -f https://data.pyg.org/whl/torch-1.7.1+cu110.html
 pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cu110/torch1.7.1/index.html
 pip install mmdet==2.14.0 mmsegmentation==0.14.1 tifffile-2021.11.2 numpy==1.19.5 protobuf==3.19.4 scikit-image==0.19.2 pycocotools==2.0.0 waymo-open-dataset-tf-2-2-0 nuscenes-devkit==1.0.5 spconv-cu111 gpustat numba scipy pandas matplotlib Cython shapely loguru tqdm future fire yacs jupyterlab scikit-image pybind11 tensorboardX tensorboard easydict pyyaml open3d addict pyquaternion awscli timm typing-extensions==4.7.1
 
+git clone git@github.com:Nightmare-n/UniPAD.git
+cd UniPAD
 python setup.py develop --user
 ```
 ## Data Preparation
