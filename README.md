@@ -20,7 +20,33 @@ Shixiang Tang<sup>1</sup>, Hengshuang Zhao<sup>3</sup>, Qibo Qiu<sup>6</sup>, Bi
 
 In this paper, we present UniPAD, a novel self-supervised learning paradigm applying 3D volumetric differentiable rendering. UniPAD implicitly encodes 3D space, facilitating the reconstruction of continuous 3D shape structures and the intricate appearance characteristics of their 2D projections. The flexibility of our method enables seamless integration into both 2D and 3D frameworks, enabling a more holistic comprehension of the scenes.
 
-Code will be released soon.
+
+## News
+[2023-11-30] The core of the code is released.
+
+[2023-10-12] The paper is publicly available on ArXiv.
+
+## Installation
+This project is based on MMDetection3D, which can be constructed as follows.
+
+- Install PyTorch [v1.7.1](https://pytorch.org/get-started/previous-versions/) and mmDetection3D [v0.17.3](https://github.com/open-mmlab/mmdetection3d/tree/v0.17.3) following the [instructions](https://github.com/open-mmlab/mmdetection3d/blob/v0.17.3/docs/getting_started.md).
+- Install the required environment
+
+```
+pip install --no-index torch-scatter -f https://data.pyg.org/whl/torch-1.7.1+cu110.html
+pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cu110/torch1.7.1/index.html
+pip install mmdet==2.14.0 mmsegmentation==0.14.1 tifffile-2021.11.2 numpy==1.19.5 protobuf==3.19.4 scikit-image==0.19.2 pycocotools==2.0.0 waymo-open-dataset-tf-2-2-0 nuscenes-devkit==1.0.5 spconv-cu111 gpustat numba scipy pandas matplotlib Cython shapely loguru tqdm future fire yacs jupyterlab scikit-image pybind11 tensorboardX tensorboard easydict pyyaml open3d addict pyquaternion awscli timm typing-extensions==4.7.1
+
+python setup.py develop --user
+```
+## Data Preparation
+Please follow the instruction of [UVTR](https://github.com/dvlab-research/UVTR) to prepare the dataset.
+
+## Training
+You can train the model following the instructions. You can also find the pretrained models [here](https://drive.google.com/drive/folders/1_D57qpLDbNAEAEqfjdNFDrlB5ntSDVrT?usp=sharing).
+```
+bash ./extra_tools/dist_train_ssl.sh
+```
 
 ## Citation
 ```bib
@@ -50,3 +76,9 @@ Code will be released soon.
   year={2023}
 }
 ```
+
+## Acknowledgement
+This project is mainly based on the following codebases. Thanks for their great works!
+
+- [SDFStudio](https://github.com/autonomousvision/sdfstudio)
+- [MMDetection3D](https://github.com/open-mmlab/mmdetection3d)
