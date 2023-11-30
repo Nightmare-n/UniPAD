@@ -22,7 +22,7 @@ In this paper, we present UniPAD, a novel self-supervised learning paradigm appl
 
 
 ## News
-[2023-11-30] The core of the code is released.
+[2023-11-30] The code is released.
 
 [2023-10-12] The paper is publicly available on ArXiv.
 
