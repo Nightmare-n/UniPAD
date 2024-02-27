@@ -56,11 +56,11 @@ bash ./extra_tools/dist_train_ssl.sh
 
 ## Citation
 ```bib
-@article{yang2023unipad,
+@inproceedings{yang2023unipad,
   title={UniPAD: A Universal Pre-training Paradigm for Autonomous Driving}, 
   author={Honghui Yang and Sha Zhang and Di Huang and Xiaoyang Wu and Haoyi Zhu and Tong He and Shixiang Tang and Hengshuang Zhao and Qibo Qiu and Binbin Lin and Xiaofei He and Wanli Ouyang},
-  journal={arXiv preprint arXiv:2310.08370},
-  year={2023},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024},
 }
 
 @article{zhu2023ponderv2,
