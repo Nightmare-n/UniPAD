@@ -22,7 +22,7 @@ In this paper, we present UniPAD, a novel self-supervised learning paradigm appl
 
 
 ## News
-[2024-02-27] UniPAD is accepted at CVPR 2024.
+[2024-02-27] UniPAD is accepted at CVPR 2024 (Full code will be released soon).
 
 [2023-11-30] The code is released. The code for indoor is available [here](https://github.com/OpenGVLab/PonderV2).
 
