@@ -3,6 +3,8 @@ from .uni3d_viewtrans import Uni3DViewTrans
 from .uni3d_voxelpool import Uni3DVoxelPool
 from .uni3d_crossattn import Uni3DCrossAttn
 from .uni3d_voxelpooldepth import Uni3DVoxelPoolDepth
+from .uni3d_detr_v2 import Uni3DTransformer, UniTransformerDecoderV2, UniCrossAttenV2
+
 
 __all__ = [
     "Uni3DDETR",
@@ -15,5 +17,4 @@ __all__ = [
     "Uni3DTransformer",
     "UniTransformerDecoderV2",
     "UniCrossAttenV2",
-    "UniTransformerDecoderV3",
 ]

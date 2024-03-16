@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 while true
@@ -13,14 +14,9 @@ echo $PORT
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 GPUS=4
 
-CONFIG=projects/configs/unipad/uvtr_cam_vs0.1_pretrain.py
+CONFIG=projects/configs/unipad_final/final_uvtr_cam_vs0.075_finetune.py
+CHECKPOINT=work_dirs/final_uvtr_cam_vs0.075_finetune/epoch_24.pth
 
 PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
 python3 -m torch.distributed.launch --nproc_per_node=$GPUS --master_port=$PORT \
-    $(dirname "$0")/train.py $CONFIG --launcher pytorch --no-validate
-
-CONFIG=projects/configs/unipad_abl/abl_uvtr_cam_vs0.1_finetune.py
-
-PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
-python3 -m torch.distributed.launch --nproc_per_node=$GPUS --master_port=$PORT \
-    $(dirname "$0")/train.py $CONFIG --launcher pytorch
+    $(dirname "$0")/test.py $CONFIG $CHECKPOINT --launcher pytorch --eval bbox

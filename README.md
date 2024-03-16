@@ -22,7 +22,7 @@ In this paper, we present UniPAD, a novel self-supervised learning paradigm appl
 
 
 ## News
-[TODO] We will be releasing the full code and refactoring it based on OpenPCDet soon.
+[2024-03-16] The full code is released.
 
 [2024-02-27] UniPAD is accepted at CVPR 2024.
 
@@ -52,11 +52,39 @@ python setup.py develop --user
 ## Data Preparation
 Please follow the instruction of [UVTR](https://github.com/dvlab-research/UVTR) to prepare the dataset.
 
-## Training
+## Training & Testing
 You can train the model following the instructions. You can also find the pretrained models [here](https://drive.google.com/drive/folders/1_D57qpLDbNAEAEqfjdNFDrlB5ntSDVrT?usp=sharing).
 ```
+# train
 bash ./extra_tools/dist_train_ssl.sh
+
+# test
+bash ./extra_tools/dist_test.sh
 ```
+
+## Results
+
+### Ablation
+|                                             | NDS | mAP | Model |
+|---------------------------------------------|:-------:|:-------:|:-------:|
+|[UniPAD_C (voxel_size=0.1)](projects/configs/unipad_abl/abl_uvtr_cam_vs0.1_finetune.py)| 32.9 | 32.6 | [pretrain](https://drive.google.com/file/d/1W8ebt8ntyGwCuhIir53OX_ZQyOY5kwhM/view?usp=sharing)/[ckpt](https://drive.google.com/file/d/1rwxyrhCdChFqEo7yUquqntQKAgExbvPB/view?usp=sharing) |
+|[UniPAD_L](projects/configs/unipad_abl/abl_uvtr_lidar_vs0.075_finetune.py)| 55.8 | 48.1 | [pretrain](https://drive.google.com/file/d/1HJDxEsHytuKgpXbuFws2rjVBJG0AMQ3I/view?usp=sharing)/[ckpt](https://drive.google.com/file/d/191vEkU-H8z4qK7KBPcXgMDJPy4HNq8GM/view?usp=sharing) |
+|[UniPAD_M](projects/configs/unipad_abl/abl_uvtr_fusion_vs0.075_finetune.py)| 56.8 | 57.0 | [ckpt](https://drive.google.com/file/d/1LY-BydPXGpRowvDNJ9I_GV65UGoQG9Kg/view?usp=sharing) |
+
+### Validation
+|                                             | NDS | mAP | Model |
+|---------------------------------------------|:-------:|:-------:|:-------:|
+|[UniPAD_C (voxel_size=0.075)](projects/configs/unipad_final/final_uvtr_cam_vs0.075_finetune.py)| 47.4 | 41.5 |  [pretrain](https://drive.google.com/file/d/154SI0CzjiMtMcZdAMLYLvJioUh2AhIa9/view?usp=sharing)/[ckpt](https://drive.google.com/file/d/1CIdbnzP5VOHLIj9EgB7rMzcozUP1F6sJ/view?usp=sharing) |
+|[UniPAD_L](projects/configs/unipad_final/final_uvtr_lidar_vs0.075_finetune.py)| 70.6 | 65.0 | [pretrain](https://drive.google.com/file/d/1HJDxEsHytuKgpXbuFws2rjVBJG0AMQ3I/view?usp=sharing)/[ckpt](https://drive.google.com/file/d/14magUpxM-PlIuEOLI7up9EZlH66QNpCy/view?usp=sharing) |
+|[UniPAD_M](projects/configs/unipad_final/final_uvtr_fusion_vs0.075_finetune.py)| 73.2 | 69.9 | [ckpt](https://drive.google.com/file/d/1xzfgE8J2COjj69XJhT1HOm5VHCVfv7k1/view?usp=sharing) |
+
+### Testing
+|                                             | NDS | mAP | 
+|---------------------------------------------|:-------:|:-------:|
+|[UniPAD_C (voxel_size=0.075)](projects/configs/unipad_final/final_uvtr_cam_vs0.075_finetune_test.py)| 49.4 | 45.0 |
+|[UniPAD_L](projects/configs/unipad_final/final_uvtr_lidar_vs0.075_finetune_test.py)| 71.6 | 66.4 |
+|[UniPAD_M](projects/configs/unipad_final/final_uvtr_fusion_vs0.075_finetune_test.py)| 73.9 | 71.0 |
+|[UniPAD_M (TTA)](projects/configs/unipad_final/final_uvtr_fusion_vs0.075_finetune_test_tta.py)| 74.8 | 72.5 |
 
 ## Citation
 ```bib
