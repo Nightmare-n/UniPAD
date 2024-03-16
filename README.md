@@ -55,7 +55,7 @@ Please follow the instruction of [UVTR](https://github.com/dvlab-research/UVTR) 
 ## Training & Testing
 You can train the model following the instructions. You can also find the pretrained models [here](https://drive.google.com/drive/folders/1_D57qpLDbNAEAEqfjdNFDrlB5ntSDVrT?usp=sharing).
 ```
-# train
+# train (4 gpus)
 bash ./extra_tools/dist_train_ssl.sh
 
 # test
