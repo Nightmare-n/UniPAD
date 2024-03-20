@@ -67,7 +67,7 @@ bash ./extra_tools/dist_test.sh
 ### Ablation
 |                                             | NDS | mAP | Model |
 |---------------------------------------------|:-------:|:-------:|:-------:|
-|[UniPAD_C (voxel_size=0.1)](projects/configs/unipad_abl/abl_uvtr_cam_vs0.1_finetune.py)| 32.9 | 32.6 | [pretrain](https://drive.google.com/file/d/1W8ebt8ntyGwCuhIir53OX_ZQyOY5kwhM/view?usp=sharing)/[ckpt](https://drive.google.com/file/d/1rwxyrhCdChFqEo7yUquqntQKAgExbvPB/view?usp=sharing) |
+|[UniPAD_C (voxel_size=0.1)](projects/configs/unipad_abl/abl_uvtr_cam_vs0.1_finetune.py)| 32.9 | 32.6 | [pretrain](https://drive.google.com/file/d/1W8ebt8ntyGwCuhIir53OX_ZQyOY5kwhM/view?usp=sharing)/[ckpt](https://drive.google.com/file/d/1rwxyrhCdChFqEo7yUquqntQKAgExbvPB/view?usp=sharing)/[log](https://drive.google.com/file/d/1pPYjoM4Boiy_RNE8z8L0j1Kjpiq27KWh/view?usp=sharing) |
 |[UniPAD_L](projects/configs/unipad_abl/abl_uvtr_lidar_vs0.075_finetune.py)| 55.8 | 48.1 | [pretrain](https://drive.google.com/file/d/1HJDxEsHytuKgpXbuFws2rjVBJG0AMQ3I/view?usp=sharing)/[ckpt](https://drive.google.com/file/d/191vEkU-H8z4qK7KBPcXgMDJPy4HNq8GM/view?usp=sharing) |
 |[UniPAD_M](projects/configs/unipad_abl/abl_uvtr_fusion_vs0.075_finetune.py)| 56.8 | 57.0 | [ckpt](https://drive.google.com/file/d/1LY-BydPXGpRowvDNJ9I_GV65UGoQG9Kg/view?usp=sharing) |
 
