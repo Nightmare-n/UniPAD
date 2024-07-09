@@ -250,28 +250,28 @@ class UVTRSSL(MVXTwoStageDetector):
 
     def simple_test(self, img_metas, points=None, img=None):
         """Test function without augmentaiton."""
-        pts_feat, img_feats, img_depth = self.extract_feat(
+        pts_feats, img_feats, img_depth = self.extract_feat(
             points=points, img=img, img_metas=img_metas
         )
         batch_rays = self.pts_bbox_head.sample_rays_test(points, img, img_metas)
         results = self.pts_bbox_head(
-            batch_rays, img_feats, points, img_metas, img_depth
+            pts_feats, img_feats, batch_rays, img_metas, img_depth
         )
         with open("outputs/{}.pkl".format(img_metas[0]["sample_idx"]), "wb") as f:
             H, W = img_metas[0]["img_shape"][0][0], img_metas[0]["img_shape"][0][1]
             num_cam = len(img_metas[0]["img_shape"])
             l = 2
-            init_weights = results[0]["vis_weights"]
-            init_weights = init_weights.reshape(num_cam, -1, *init_weights.shape[1:])
-            init_sampled_points = results[0]["vis_sampled_points"]
-            init_sampled_points = init_sampled_points.reshape(
-                num_cam, -1, *init_sampled_points.shape[1:]
-            )
-            pts_idx = np.random.randint(
-                0, high=init_sampled_points.shape[1], size=(256,), dtype=int
-            )
-            init_weights = init_weights[:, pts_idx]
-            init_sampled_points = init_sampled_points[:, pts_idx]
+            # init_weights = results[0]["vis_weights"]
+            # init_weights = init_weights.reshape(num_cam, -1, *init_weights.shape[1:])
+            # init_sampled_points = results[0]["vis_sampled_points"]
+            # init_sampled_points = init_sampled_points.reshape(
+            #     num_cam, -1, *init_sampled_points.shape[1:]
+            # )
+            # pts_idx = np.random.randint(
+            #     0, high=init_sampled_points.shape[1], size=(256,), dtype=int
+            # )
+            # init_weights = init_weights[:, pts_idx]
+            # init_sampled_points = init_sampled_points[:, pts_idx]
             pickle.dump(
                 {
                     "render_rgb": results[0]["rgb"]
@@ -285,15 +285,15 @@ class UVTRSSL(MVXTwoStageDetector):
                     .cpu()
                     .numpy(),
                     "rgb": batch_rays[0]["rgb"].detach().cpu().numpy(),
-                    "scaled_points": results[0]["scaled_points"].detach().cpu().numpy(),
-                    "points": points[0].detach().cpu().numpy(),
-                    "lidar2img": np.asarray(img_metas[0]["lidar2img"])[
-                        :, 0
-                    ],  # (N, 4, 4)
+                    # "scaled_points": results[0]["scaled_points"].detach().cpu().numpy(),
+                    # "points": points[0].detach().cpu().numpy(),
+                    # "lidar2img": np.asarray(img_metas[0]["lidar2img"])[
+                    #     :, 0
+                    # ],  # (N, 4, 4)
                     # 'weights': results[0]['vis_weights'].detach().cpu().numpy(),
                     # 'sampled_points': results[0]['vis_sampled_points'].detach().cpu().numpy(),
-                    "init_weights": init_weights.detach().cpu().numpy(),
-                    "init_sampled_points": init_sampled_points.detach().cpu().numpy(),
+                    # "init_weights": init_weights.detach().cpu().numpy(),
+                    # "init_sampled_points": init_sampled_points.detach().cpu().numpy(),
                 },
                 f,
             )

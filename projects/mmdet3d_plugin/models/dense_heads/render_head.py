@@ -505,9 +505,9 @@ class RenderHead(BaseModule):
             i_sampled_ray_d = F.normalize(
                 i_pts[..., :3] - i_sampled_ray_o, dim=-1
             )  # (N*C, H*W, 3), normalized direction vector, in LiDAR coordinate
-            i_sampled_ray_d_norm = torch.norm(
-                i_pts[..., :3] - i_sampled_ray_o, dim=-1, keepdim=True
-            )
+            # i_sampled_ray_d_norm = torch.norm(
+            #     i_pts[..., :3] - i_sampled_ray_o, dim=-1, keepdim=True
+            # )
             i_sampled_ray_o = i_sampled_ray_o * self.render_model.scale_factor
 
             vis_img = i_imgs.permute(0, 2, 3, 1)  # (N*C, H, W, 3)
